@@ -22,7 +22,12 @@ nav{
     text-transform: uppercase;
     text-decoration: none;
     font-size: 1.5rem;
-    display: flex;
+    /* display: flex; */
+}
+
+.navbar-toggler{
+    border: 1px solid white;
+    color: white;
 }
 
 @media (min-width: 576px) {
@@ -37,11 +42,6 @@ nav{
     }
     .nav-items a{
         padding: 2rem;
-        color: white;
-        text-transform: uppercase;
-        text-decoration: none;
-        font-size: 1.5rem;
-        display: flex;
     }
 }
 @media (min-width: 992px) {

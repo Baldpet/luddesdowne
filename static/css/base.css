@@ -1,3 +1,9 @@
+header, footer{
+    width: 100%;
+    background-color: #1f1f1f ;
+    color: white;
+}
+
 nav{
     display: flex;
     flex-direction: row;
@@ -28,6 +34,10 @@ nav{
 .navbar-toggler{
     border: 1px solid white;
     color: white;
+}
+
+.navbar-collapse{
+    justify-content: center;
 }
 
 @media (min-width: 576px) {

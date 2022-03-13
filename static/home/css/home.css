@@ -1,3 +1,9 @@
 .home-row{
     min-height: 400px;
+    padding: 2rem 0;
+}
+
+.dark{
+    background-color: #1f1f1f;
+    color: white;
 }

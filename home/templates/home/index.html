@@ -14,21 +14,23 @@
 {% block content %}
 
 <main class="container-fluid g-0">
-    <div id="hero-row" class="row g-0" >
-        <h1>Luddesdowne CC</h1>
-        <img src="https://picsum.photos/1920/800" alt="Luddesdowne CC ground">
+    <div id="hero-row" class="row g-0" style="position: relative;" >
+        <img src="{{ MEDIA_URL }}/luddesdowne-ground.png" alt="Luddesdowne CC ground">
+        <div class="title-div">
+            <h1>Luddesdowne Cricket Club</h1>
+            <a href="#" class="secondary-btn">See Fixtures</a>
+        </div>
     </div>
     <div class="container">
         <div id="intro-row" class="row home-row white">
-            <div class="col-12">
+            <div class="col-xs-12 col-md-6">
                 <h2>A Little About Us</h2>
+                <p>We are a small, friendly bunch of players. Luddesdowne is a very special place and we think the club is too! We play our cricket in the traditional way and try to uphold the best values of the game. The Rectory Cricket Ground is the home of Luddesdowne Cricket Club and is without a doubt one of the most rural and picturesque grounds in England.</p>
+                <p>This year is the club's 75th aniversary from formation! We are extremely proud of our heritage and will be celebrating throughout the year with cricketing and commemorative events. Check them out in the upcomming events section.</p>
+                <a href="#"><div class="primary-btn" style="margin-top: 2rem;">See Events</div></a>
             </div>
-            <div class="col-6">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus debitis aperiam totam assumenda? Aspernatur voluptas, ipsa similique repudiandae possimus soluta eveniet maxime quaerat inventore, molestias ex. Adipisci necessitatibus assumenda quod.</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga aliquam mollitia esse natus! Atque voluptate autem quo quaerat placeat repellat fugit quas pariatur! Porro animi excepturi earum maxime quae dignissimos.</p>
-            </div>
-            <div class="col-6 align-self-center" style="text-align: center;">
-                <img src="https://picsum.photos/300/300" alt="Luddes Logo" >
+            <div class="col-xs-12 col-md-6 align-self-center about-logo-div" style="text-align: center;">
+                <img src="{{ MEDIA_URL }}/75th-logo.png" alt="Luddes Logo" style="height: 350px;" >
             </div>
         </div>
     </div>
@@ -52,15 +54,21 @@
         <div id="sponsor-row" class="row home-row white">
             <div class="col-12">
                 <h2>Check out our Sponsors</h2>
-            </div> 
-            <div class="col-4 align-self-center">
-                <img src="https://picsum.photos/200/200" alt="Sponsor">
             </div>
-            <div class="col-4 align-self-center">
-                <img src="https://picsum.photos/200/200" alt="Sponsor">
+            <div class="col-xs-12 col-sm-4 align-self-center sponsor-div" >
+                <a href="https://stiddard.co.uk/">
+                    <img src="{{ MEDIA_URL }}/stiddard-logo.png" alt="Stiddard Logo" style="max-width: 100%;">
+                </a>
             </div>
-            <div class="col-4 align-self-center">
-                <img src="https://picsum.photos/200/200" alt="Sponsor">
+            <div class="col-xs-12 col-sm-4 align-self-center sponsor-div" >
+                <a href="https://www.cockluddesdowne.com/">
+                    <img src="{{ MEDIA_URL }}/cock-inn-logo.jpg" alt="The Cock Inn Luddesdowne Logo" style="max-width: 100%;">
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-4 align-self-center sponsor-div" >
+                <a href="http://www.fgsplant.co.uk/">
+                    <img src="{{ MEDIA_URL }}/FGS-plant-logo.jpg" alt="FGS Plant Logo" style="max-width: 100%;">
+                </a>
             </div>
         </div>
     </div>

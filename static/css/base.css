@@ -4,6 +4,16 @@ header, footer{
     color: white;
 }
 
+p{
+    font-size: 1.2rem;
+}
+
+.nav-blur{
+    background-color: #226D42;
+    height: 0.1rem;
+    box-shadow: 0px 0px 10px 7px #226D42;
+}
+
 nav{
     display: flex;
     flex-direction: row;
@@ -31,6 +41,10 @@ nav{
     /* display: flex; */
 }
 
+.nav-link:focus, .nav-link:hover{
+    color: #EFE82D;
+}
+
 .navbar-toggler{
     border: 1px solid white;
     color: white;
@@ -38,6 +52,31 @@ nav{
 
 .navbar-collapse{
     justify-content: center;
+}
+
+.primary-btn,
+.secondary-btn{
+    border: 0;
+    border-radius: 25px;
+    padding: 10px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover{
+    text-decoration: none;
+}
+
+.primary-btn{
+    background-color: #EFE82D;
+}
+
+.secondary-btn{
+    background-color: #ffffff;
 }
 
 @media (min-width: 576px) {

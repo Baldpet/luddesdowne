@@ -1,6 +1,6 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg">
-        <a href="#" >
+        <a href="{% url 'home' %}" >
             <img src="{{ MEDIA_URL }}/logo.png" alt="Luddes Logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,13 +9,13 @@
         <div class="collapse navbar-collapse" id="navCollapse"> 
             <ul class="nav-items">
                 <li>
-                    <a class="nav-link" href="#">Mens Team</a>
+                    <a class="nav-link" href="{% url 'mens' %}">Mens Team</a>
                 </li>
                 <li>
-                    <a class="nav-link" href="#">Ladies Team</a>
+                    <a class="nav-link" href="{% url 'ladies' %}">Ladies Team</a>
                 </li>
                 <li>
-                    <a class="nav-link" href="#">Contact Us</a>
+                    <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
                 </li>
             </ul>
         </div>                  

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta %}
+{{ block.super }}
+<title>Luddesdowne CC</title>
+{% endblock %}
+
+{% block corecss %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<main class="container-fluid g-0">
+    <h1>Mens</h1>
+</main>
+
+{% endblock %}

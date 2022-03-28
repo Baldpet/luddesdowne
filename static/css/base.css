@@ -42,7 +42,7 @@ footer a{
     /* display: flex; */
 }
 
-nav-items a{
+.nav-items a{
     text-transform: uppercase;
     font-size: 1.5rem;
 }

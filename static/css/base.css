@@ -27,21 +27,27 @@ nav{
     padding: 0;
 }
 
-.nav-items li{
+.nav-items li,
+footer li{
     list-style: none;
     margin: 0 1rem;
     text-align: center;
 }
 
-.nav-items a{
+.nav-items a,
+footer a{
     color: white;
-    text-transform: uppercase;
     text-decoration: none;
-    font-size: 1.5rem;
+    
     /* display: flex; */
 }
 
-.nav-link:focus, .nav-link:hover{
+nav-items a{
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.nav-link:focus, .nav-link:hover, .footer-link:focus, .footer-link:hover{
     color: #EFE82D;
 }
 
@@ -77,6 +83,32 @@ nav{
 
 .secondary-btn{
     background-color: #ffffff;
+}
+
+footer{
+    padding: 3rem 0;
+}
+
+.socials-container{
+    text-align: center;
+}
+
+.socials{
+    padding: 0;
+}
+
+.socials li{
+    display: inline-block;
+}
+
+#footer-info p{
+    font-size: 13px;
+}
+
+.footer-break{
+    border-top: 1px solid white;
+    width: 100%;
+    margin: 2rem auto;
 }
 
 @media (min-width: 576px) {

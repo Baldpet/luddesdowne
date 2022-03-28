@@ -70,6 +70,18 @@ h2{
     margin: 3rem auto;
 }
 
+#event-row{
+    padding-bottom: 2rem;
+}
+
+.event-container{
+    margin: 2rem 0;
+}
+
+#sponsor-row{
+    min-height: auto;
+}
+
 @media (min-width: 576px) {
     .sponsor-div{
         margin-bottom: 0;

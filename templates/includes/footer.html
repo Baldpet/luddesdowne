@@ -1,30 +1,54 @@
 <div class="container">
     <div class="row">
-        <div class="col-6">
+        <div class="d-none d-md-block col-md-4">
             <ul>
                 <li>
-                    <a href="#">Mens Team</a>
+                    <a href="{% url 'mens' %}" class="footer-link">Mens Team</a>
                 </li>
                 <li>
-                    <a href="#">Ladies Team</a>
+                    <a href="{% url 'ladies' %}" class="footer-link">Ladies Team</a>
                 </li>
                 <li>
-                    <a href="#">Contact Us</a>
+                    <a href="{% url 'contact' %}" class="footer-link">Contact Us</a>
                 </li>
             </ul>
         </div>
-        <div class="col-6">
-            <ul>
+        <div class="col-xs-12 col-md-4 socials-container">
+            <h4>Luddesdowne Cricket Club</h4>
+            <ul class="socials">
                 <li>
-                    <a href="#">Facebook</a>
+                    <a href="#" rel="noreferrer noopener" class="footer-link"><i class="fab fa-2x fa-facebook-square"></i></a>
                 </li>
                 <li>
-                    <a href="#">Instagram</a>
+                    <a href="https://www.instagram.com/luddesdowne_ladies_cricket/" rel="noreferrer noopener" class="footer-link"><i class="fab fa-2x fa-instagram-square"></i></a>
                 </li>
                 <li>
-                    <a href="#">Twitter</a>
+                    <a href="#" rel="noreferrer noopener" class="footer-link"><i class="fab fa-2x fa-twitter-square"></i></a>
                 </li>
             </ul>
+        </div>
+        <div class="col-xs-12 col-md-4 socials-container">
+            <h4>Luddesdowne Ladies</h4>
+            <ul class="socials">
+                <li>
+                    <a href="#" rel="noreferrer noopener" class="footer-link"><i class="fab fa-2x fa-facebook-square"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/luddesdowne_ladies_cricket/" rel="noreferrer noopener" class="footer-link"><i class="fab fa-2x fa-instagram-square"></i></a>
+                </li>
+                <li>
+                    <a href="#" rel="noreferrer noopener" class="footer-link"><i class="fab fa-2x fa-twitter-square"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="footer-info" class="row">
+        <div class="footer-break"></div>
+        <div class="col-6">
+            <p>Luddesdowne Cricket Club, Old Rectory Ground, Luddesdowne, Kent, DA13 0XE </p>
+        </div>
+        <div class="col-6">
+            <p style="float: right">Website build by Peter Baldwin</p>
         </div>
     </div>
 </div>

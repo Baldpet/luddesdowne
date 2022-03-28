@@ -13,7 +13,75 @@
 {% block content %}
 
 <main class="container-fluid g-0">
-    <h1>Contact Us</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Contact Us</h1>
+                <p>Looking to contact a member of Luddesdowne Cricket Club? Look no further we have all our useful contact numbers below and a helpful map if you are looking to find us in person.</p>
+                <a href="#google-map">Where to find us</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col table-responsive-md">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1st XI Captain</th>
+                            <td>Sam Piddock</td>
+                            <td>test@test.co.uk</td>
+                            <td>012345 456789</td>
+                        </tr>
+                        <tr>
+                            <th>Ladies Captain</th>
+                            <td>Robyn Wickman</td>
+                            <td>test@test.co.uk</td>
+                            <td>012345 456789</td>
+                        </tr>
+                        <tr>
+                            <td>Social Secretary</td>
+                            <td>Matt Cowlam</td>
+                            <td>test@test.co.uk</td>
+                            <td>012345 456789</td>
+                        </tr>
+                        <tr>
+                            <td>Social Secretary</td>
+                            <td>Justine Wickman</td>
+                            <td>test@test.co.uk</td>
+                            <td>012345 456789</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div style="text-align: center;">
+            <iframe id="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4188.883691715!2d0.3926250790012702!3d51.37134936620436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8ca94af5be9e5%3A0x63d5dde5075570a2!2sLuddesdowne%20Cricket%20Club!5e0!3m2!1sen!2suk!4v1648469311183!5m2!1sen!2suk" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    
 </main>
+<script>
+    function myFunction(x) {
+        if (x.matches) { // If media query matches
+            $('#google-map').attr('width', '300');
+            $('#google-map').attr('height', '300');
+        } else {
+            $('#google-map').attr('width', '800');
+            $('#google-map').attr('height', '600');
+        }
+    }
+
+    var x = window.matchMedia("(max-width: 800px)")
+    myFunction(x) // Call listener function at run time
+    x.addListener(myFunction) // Attach listener function on state changes
+</script>
 
 {% endblock %}

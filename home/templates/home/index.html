@@ -15,7 +15,8 @@
 
 <main class="container-fluid g-0">
     <div id="hero-row" class="row g-0" style="position: relative;" >
-        <img src="{{ MEDIA_URL }}/luddesdowne-ground.png" alt="Luddesdowne CC ground">
+        <div class="hero-img"></div>
+        <!-- <img src="{{ MEDIA_URL }}/luddesdowne-ground.png" alt="Luddesdowne CC ground"> -->
         <div class="title-div">
             <h1>Luddesdowne Cricket Club</h1>
             <a href="#" class="secondary-btn">See Fixtures</a>
@@ -40,29 +41,40 @@
                 <div class="col-xs-12">
                     <h2>Upcoming Fixtures</h2>
                 </div>
-                <div class="col-xs-12 col-md-4" style="text-align: center;">
-                    <h3>Mens 1st XI</h3>
-                    <img src="{{ MEDIA_URL }}/logo.png" alt="Luddes Logo" style="height: 100px; width: 100px;"><span>V</span><img src="{{ MEDIA_URL }}/logo.png" alt="Luddes Logo" style="height: 100px; width: 100px;">
-                    <p>Luddesdowne Vs Luddesdowne</p>
+                <div class="col-xs-12 col-md-4 fixture-container" style="text-align: center;">
+                    <h3>1st XI</h3>
+                    <img src="{{ MEDIA_URL }}/logo.png" alt="Luddes Logo" class="fixture-logo""><span>V</span><img src="{{ MEDIA_URL }}/logo.png" alt="Luddes Logo" class="fixture-logo"">
+                    <div class="fixture-teams">
+                        <p>Luddesdowne Vs Luddesdowne</p>
+                    </div>
+                    <div class="fixture-break"></div>
                     <p>Saturday 5th April, 13.30PM</p>
-                    <p>League</p>
                     <p>Henley Bottom</p>
-                </div>
-                <div class="col-xs-12 col-md-4" style="text-align: center;">
-                    <h3>Mens 2nd XI</h3>
-                    <img src="{{ MEDIA_URL }}/logo.png" alt="Luddes Logo" style="height: 100px; width: 100px;"><span>V</span><img src="{{ MEDIA_URL }}/logo.png" alt="Luddes Logo" style="height: 100px; width: 100px;">
-                    <p>Luddesdowne Vs Luddesdowne</p>
-                    <p>Saturday 5th April, 13.30PM</p>
                     <p>League</p>
-                    <p>Henley Bottom</p>
                 </div>
-                <div class="col-xs-12 col-md-4" style="text-align: center;">
-                    <h3>Ladies 1st Team</h3>
-                    <img src="{{ MEDIA_URL }}/logo.png" alt="Luddes Logo" style="height: 100px; width: 100px;"><span>V</span><img src="{{ MEDIA_URL }}/logo.png" alt="Luddes Logo" style="height: 100px; width: 100px;">
-                    <p>Luddesdowne Vs Luddesdowne</p>
+                <div class="col-xs-12 d-md-none fixture-blur" ></div>
+                <div class="col-xs-12 col-md-4 fixture-container" style="text-align: center;">
+                    <h3>2nd XI</h3>
+                    <img src="{{ MEDIA_URL }}/logo.png" alt="Luddes Logo" class="fixture-logo" ><span>V</span><img src="{{ MEDIA_URL }}/logo.png" alt="Luddes Logo" class="fixture-logo">
+                    <div class="fixture-teams">   
+                        <p >Luddesdowne Vs Luddesdowne</p>
+                    </div>
+                    <div class="fixture-break"></div>
                     <p>Saturday 5th April, 13.30PM</p>
+                    <p>Henley Bottom</p>
+                    <p>League</p>
+                </div>
+                <div class="col-xs-12 d-md-none fixture-blur" ></div>
+                <div class="col-xs-12 col-md-4 fixture-container" style="text-align: center;">
+                    <h3>Ladies</h3>
+                    <img src="{{ MEDIA_URL }}/logo.png" alt="Luddes Logo" class="fixture-logo"><span>V</span><img src="{{ MEDIA_URL }}/logo.png" alt="Luddes Logo" class="fixture-logo">
+                    <div class="fixture-teams">
+                        <p>Luddesdowne Vs Luddesdowne</p>
+                    </div>
+                    <div class="fixture-break"></div>
+                    <p>Saturday 5th April, 13.30PM</p>
+                    <p>Henley Bottom</p>
                     <p>Softball Tournament</p>
-                    <p>Henley Bottom</p>
                 </div>
             </div>
         </div>

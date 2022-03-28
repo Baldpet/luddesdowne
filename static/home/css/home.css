@@ -12,10 +12,15 @@ h2{
     color: white;
 }
 
+.hero-img{
+    background: url('/media/luddesdowne-ground.png') no-repeat center;
+    min-height: 500px;
+}
+
 .title-div{
     position: absolute;
     width: auto;
-    left: 15vw;
+    left: 5vw;
     top: 10vh;
 }
 
@@ -33,6 +38,38 @@ h2{
     margin-bottom: 2rem;
 }
 
+#sponsor-row{
+    padding-top: 0;
+}
+
+.fixture-container p{
+    margin: 0;
+}
+
+.fixture-logo{
+    height: 70px;
+    width: 70px;
+    margin: 0 1rem;
+}
+
+.fixture-teams{
+    margin: 1rem;
+}
+
+.fixture-break{
+    border: 1px solid white;
+    width: 40%;
+    margin: 1rem auto;
+}
+
+.fixture-blur{
+    background-color: #226D42;
+    height: 0.1rem;
+    box-shadow: 0px 0px 7px 2px #226d42;
+    width: 60%;
+    margin: 3rem auto;
+}
+
 @media (min-width: 576px) {
     .sponsor-div{
         margin-bottom: 0;
@@ -44,5 +81,18 @@ h2{
 @media (min-width: 768px) {
     .about-logo-div{
         margin-top: 0;
+    }
+    .title-div{
+        left: 15vw;
+    }
+}
+
+@media (min-width: 992px) {
+    .fixture-logo{
+        height: 100px;
+        width: 100px;
+    }
+    .hero-img{
+        min-height: 800px;
     }
 }

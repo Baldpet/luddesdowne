@@ -42,6 +42,9 @@
 
 .intro-img{
     margin-bottom: 2rem;
+    max-height: 300px;
+    max-width: 100%;
+    border-radius: 5px;
 }
 
 @media (min-width: 768px) {

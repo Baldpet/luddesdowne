@@ -8,6 +8,10 @@ p{
     font-size: 1.2rem;
 }
 
+.row{
+    padding: 0 15px;
+}
+
 .header-row{
     margin-top: 1rem;
     margin-bottom: 1rem;

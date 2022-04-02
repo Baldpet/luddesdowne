@@ -12,6 +12,10 @@ h2{
     color: white;
 }
 
+#hero-row{
+    padding: 0;
+}
+
 .hero-img{
     background: url('/media/luddesdowne-ground.png') no-repeat center;
     min-height: 500px;

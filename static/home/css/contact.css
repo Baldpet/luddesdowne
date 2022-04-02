@@ -1,0 +1,38 @@
+.contact-row{
+    margin-bottom: 2rem;
+}
+
+.google-map-container{
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.socials-container{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.socials-contact{
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 0;
+}
+
+.socials-contact a{
+    color: black;
+}
+
+.socials-header{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+@media (min-width: 576px) {
+    .socials-container{
+        display: inline-block;
+        width: 49%;
+        margin-bottom: 0;
+    }
+}

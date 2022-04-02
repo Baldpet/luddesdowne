@@ -8,19 +8,63 @@
 
 {% block corecss %}
 {{ block.super }}
+<link rel="stylesheet" href="{% static 'home/css/contact.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<main class="container-fluid g-0">
+<main class="container-fluid">
     <div class="container">
-        <div class="row">
+        <div class="row header-row">
             <div class="col-12">
                 <h1>Contact Us</h1>
-                <p>Looking to contact a member of Luddesdowne Cricket Club? Look no further we have all our useful contact numbers below and a helpful map if you are looking to find us in person.</p>
-                <a href="#google-map">Where to find us</a>
             </div>
         </div>
+        <div class="row contact-row">
+            <div class="col-xs-12 col-lg-6">
+                <p>Looking to contact a member of Luddesdowne Cricket Club? Look no further we have all our useful contact numbers below and a helpful map if you are looking to find us in person.</p>
+                <div class="primary-btn"><a href="#where-to-find">Where to Find Us</a></div>
+                <p style="margin-top: 1.5rem;">Alternatively if you are looking to find out more about our club why not check out our socials.</p>
+                <div class="socials-container">
+                    <h3 class="socials-header" >Luddesdowne CC</h3>
+                    <ul class="socials-contact" >
+                        <li>
+                            <a href="#" rel="noreferrer noopener" class="footer-link"><i class="fab fa-3x fa-facebook-square"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/luddesdowne_ladies_cricket/" rel="noreferrer noopener" class="footer-link"><i class="fab fa-3x fa-instagram-square"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/luddesdownecc" rel="noreferrer noopener" class="footer-link"><i class="fab fa-3x fa-twitter-square"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="socials-container">
+                    <h3 class="socials-header" >Luddesdowne Ladies</h3>
+                    <ul class="socials-contact">
+                        <li>
+                            <a href="#" rel="noreferrer noopener" class="footer-link"><i class="fab fa-3x fa-facebook-square"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/luddesdowne_ladies_cricket/" rel="noreferrer noopener" class="footer-link"><i class="fab fa-3x fa-instagram-square"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/luddesdownecc" rel="noreferrer noopener" class="footer-link"><i class="fab fa-3x fa-twitter-square"></i></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="d-none d-lg-block col-lg-6 align-self-center" style="text-align: center; min-height: 320px;">
+                <img src="{{ MEDIA_URL }}/contact-us.jpg" alt="Cricket Ball" style="max-height: 300px; max-width: 100%; border-radius: 5px;">
+            </div>
+        </div>
+        <div class="row header-row">
+            <div class="col-12">
+                <h2>Contact Information</h2>
+            </div>
+        </div>
+        <!--   Contact Table   -->
         <div class="row">
             <div class="col table-responsive-md">
                 <table class="table table-striped">
@@ -34,35 +78,75 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <th scope="row">Chairman</th>
+                            <td>Tony Hughes</td>
+                            <td><a href="mailto:test@test.co.uk">test@test.co.uk</a></td>
+                            <td><a href="tel:012345456789">012345 456789</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Secretary</th>
+                            <td>John Airey</td>
+                            <td> - </td>
+                            <td> - </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Fixture Secretary</th>
+                            <td>Don Hill</td>
+                            <td><a href="mailto:test@test.co.uk">test@test.co.uk</a></td>
+                            <td><a href="tel:012345456789">012345 456789</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Treasurer</th>
+                            <td>Bob Stiddard</td>
+                            <td><a href="mailto:test@test.co.uk">test@test.co.uk</a></td>
+                            <td><a href="tel:012345456789">012345 456789</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Groundsman</th>
+                            <td>Jerry Knott</td>
+                            <td><a href="mailto:test@test.co.uk">test@test.co.uk</a></td>
+                            <td> - </td>
+                        </tr>
+                        <tr>
                             <th scope="row">1st XI Captain</th>
                             <td>Sam Piddock</td>
-                            <td>test@test.co.uk</td>
-                            <td>012345 456789</td>
+                            <td><a href="mailto:test@test.co.uk">test@test.co.uk</a></td>
+                            <td><a href="tel:012345456789">012345 456789</a></td>
                         </tr>
                         <tr>
-                            <th>Ladies Captain</th>
+                            <th scope="row">2nd XI Captain</th>
+                            <td>Alex Porter</td>
+                            <td><a href="mailto:test@test.co.uk">test@test.co.uk</a></td>
+                            <td><a href="tel:012345456789">012345 456789</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Ladies Captain</th>
                             <td>Robyn Wickman</td>
-                            <td>test@test.co.uk</td>
-                            <td>012345 456789</td>
+                            <td><a href="mailto:test@test.co.uk">test@test.co.uk</a></td>
+                            <td><a href="tel:012345456789">012345 456789</a></td>
                         </tr>
                         <tr>
-                            <td>Social Secretary</td>
+                            <th scope="row">Social Secretary</th>
                             <td>Matt Cowlam</td>
-                            <td>test@test.co.uk</td>
-                            <td>012345 456789</td>
+                            <td><a href="mailto:test@test.co.uk">test@test.co.uk</a></td>
+                            <td><a href="tel:012345456789">012345 456789</a></td>
                         </tr>
                         <tr>
-                            <td>Social Secretary</td>
+                            <th scope="row">Social Secretary</th>
                             <td>Justine Wickman</td>
-                            <td>test@test.co.uk</td>
-                            <td>012345 456789</td>
+                            <td><a href="mailto:test@test.co.uk">test@test.co.uk</a></td>
+                            <td><a href="tel:012345456789">012345 456789</a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        
-        <div style="text-align: center;">
+        <div class="row header-row" id="where-to-find">
+            <div class="col-12">
+                <h2>Where to Find Us</h2>
+            </div>
+        </div>
+        <div class="google-map-container" style="text-align: center; margin: 1rem 0;">
             <iframe id="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4188.883691715!2d0.3926250790012702!3d51.37134936620436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8ca94af5be9e5%3A0x63d5dde5075570a2!2sLuddesdowne%20Cricket%20Club!5e0!3m2!1sen!2suk!4v1648469311183!5m2!1sen!2suk" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>

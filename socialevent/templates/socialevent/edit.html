@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta %}
+{{ block.super }}
+<title>Edit {{event.name}}</title>
+{% endblock %}
+
+{% block corecss %}
+{{ block.super }}
+
+{% endblock %}
+
+{% block content %}
+
+<h1>Edit</h1>
+<form action="/edit_event/{{event.id}}" method="post">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit" style="padding: 1rem; border: 1px solid black;">Add Event</button>
+</form>
+
+{% endblock %}

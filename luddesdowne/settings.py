@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'home',
     'mens',
     'ladies',
+    'socialevent',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',

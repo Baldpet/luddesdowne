@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta %}
+{{ block.super }}
+<title>Luddesdowne CC | Mens Team</title>
+{% endblock %}
+
+{% block corecss %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'mens/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+    <h1>Testing</h1>
+        {% for event in events %}
+            <div style="margin: 3rem;">
+                <p>{{event.name}}</p>
+                <p>{{event.location}}</p>
+                <p>{{event.description}}</p>
+                <p>{{event.date}}</p>
+                <a href="{% url 'edit_socialevent' event.id %}">Edit Event</a>
+            </div>
+        {% endfor %}
+    <form action="/socialevent" method="post">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit" style="padding: 1rem; border: 1px solid black;">Add Event</button>
+    </form>
+</main>
+
+
+{% endblock %}
+

@@ -3,17 +3,26 @@
         <div class="d-none d-md-block col-md-4">
             <ul>
                 <li>
-                    <a href="{% url 'mens' %}" class="footer-link">Mens Team</a>
+                    <a href="{% url 'mens' %}" class="footer-link">Mens Cricket</a>
                 </li>
                 <li>
-                    <a href="{% url 'ladies' %}" class="footer-link">Ladies Team</a>
+                    <a href="{% url 'ladies' %}" class="footer-link">Ladies Cricket</a>
                 </li>
                 <li>
                     <a href="{% url 'contact' %}" class="footer-link">Contact Us</a>
                 </li>
-                <li>
-                    <a href="{% url 'account_login' %}" class="footer-link">Login</a>
-                </li>
+                {% if request.user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'socialevent' %}" class="footer-link">Events Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'account_logout' %}" class="footer-link">Logout</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{% url 'account_login' %}" class="footer-link">Login</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
         <div class="col-xs-12 col-md-4 socials-container-footer">
@@ -42,7 +51,8 @@
             <p>Luddesdowne Cricket Club, Old Rectory Ground, Luddesdowne, Kent, DA13 0XE </p>
         </div>
         <div class="col-6">
-            <p style="float: right">Website build by Peter Baldwin</p>
+            <p style="text-align: right; margin: 0;">Website built by Peter Baldwin</p>
+            <p style="text-align: right; margin: 0;">Design by Aaric Snook</p>
         </div>
     </div>
 </div>

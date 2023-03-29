@@ -8,16 +8,57 @@
 
 {% block corecss %}
 {{ block.super }}
-
+<link rel="stylesheet" href="{% static 'socialevent/css/index.css' %}">
 {% endblock %}
 
 {% block content %}
+<main class="container-fluid g-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Edit Event</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="event-form col-xs-12 col-lg-6">
+                <form action="/edit_event/{{event.id}}" method="post">
+                    {% csrf_token %}
+                    <div class="event-form-content">
+                        {% for field in form %}
+                            <div class="fieldWrapper">
+                                {{ field.errors }}
+                                {{ field.label_tag }} 
+                                {{ field }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <button type="submit" class="primary-btn">Edit event</button>
+                    <a href="{% url 'socialevent' %}" class="secondary-btn">Back to Events</a>
+                </form>  
+            </div>   
+            <div class="col-xs-12 col-lg-6" style="display: flex; justify-content: center;">
+                <div style="align-self: center; padding: 2rem; ">
+                    <img id="example-event-img" src="{{ MEDIA_URL }}{{event.image_location.image_location}}" alt="Example of event image" width="480" height="320" style="border-radius: 5px; max-width: 100%; height: auto;">
+                    {% for image in event_image %}
+                        <div id="image-{{image.id}}" data-location="{{image.image_location}}" style="display: none;"></div>
+                    {% endfor %}
+                </div>
+            </div>     
+        </div>
+    </div>
+</main>
 
-<h1>Edit</h1>
-<form action="/edit_event/{{event.id}}" method="post">
-    {% csrf_token %}
-    {{form}}
-    <button type="submit" style="padding: 1rem; border: 1px solid black;">Add Event</button>
-</form>
-
+{% endblock %}
+{% block postloadjs %}
+<script>
+    let imageLocation = $('#example-event-img'), selectBox = $('#id_image_location'), mediaLocation = "{{ MEDIA_URL }}";
+    selectBox.change(function(){
+        var imageID = selectBox.val(), imageHiddenDiv = $('#image-' + imageID);
+        if (imageID == ''){
+            imageLocation.attr("src", mediaLocation + "pick-img.jpg")
+        } else {
+            imageLocation.attr("src", mediaLocation + imageHiddenDiv.data('location'))
+        }
+    })
+</script>
 {% endblock %}

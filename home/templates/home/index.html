@@ -83,38 +83,24 @@
             <div class="col-xs-12">
                 <h2>Upcoming Social Events</h2>
             </div>
-            <div class="col-xs-12 col-md-4 event-container">
-                <div class="card" style="width: 100%">
-                    <img src="https://picsum.photos/300/200" class="card-img-top" alt="...">
+            <div class="col-xs-12 {% if event %}event-container{% else %}coming-soon{% endif %}">
+
+            {% for event in events %}
+                <div class="card">
+                    <img src="{{MEDIA_URL}}{{event.image_location.image_location}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h3 class="card-title">Race Night</h3>
-                        <p class="card-text"><b>Date: </b> Friday 13th October </p>
-                        <p class="card-text"><b>Location: </b> Luddesdowne Village Hall, Luddesdowne, DA15 3FG</p>
-                        <p class="card-text"><b>Description: </b> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt laboriosam et animi fuga nulla cumque non facilis, quia optio veniam, quibusdam illum tenetur quam ad veritatis recusandae ipsam dignissimos nobis.</p>
+                        <h3 class="card-title">{{event.name}}</h3>
+                        <p class="card-text"><b>Date: </b> {{event.date}} </p>
+                        <p class="card-text"><b>Location: </b> {{event.location}}</p>
+                        <p class="card-text">{{event.description}}</p>
                     </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-md-4 event-container">
-                <div class="card" style="width: 100%">
-                    <img src="https://picsum.photos/300/200" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h3 class="card-title">Race Night</h3>
-                        <p class="card-text"><b>Date: </b> Friday 13th October </p>
-                        <p class="card-text"><b>Location: </b> Luddesdowne Village Hall, Luddesdowne, DA15 3FG</p>
-                        <p class="card-text"><b>Description: </b> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt laboriosam et animi fuga nulla cumque non facilis, quia optio veniam, quibusdam illum tenetur quam ad veritatis recusandae ipsam dignissimos nobis.</p>
-                    </div>
+            {% empty %}
+                <div style="text-align: center;">
+                    <i class="fas fa-4x fa-wrench" style="margin-bottom: 2rem;"></i>
+                    <p>Events are coming soon! Check back later.</p>
                 </div>
-            </div>
-            <div class="d-none d-md-block col-md-4 event-container">
-                <div class="card" style="width: 100%">
-                    <img src="https://picsum.photos/300/200" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h3 class="card-title">Race Night</h3>
-                        <p class="card-text"><b>Date: </b> Friday 13th October </p>
-                        <p class="card-text"><b>Location: </b> Luddesdowne Village Hall, Luddesdowne, DA15 3FG</p>
-                        <p class="card-text"><b>Description: </b> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt laboriosam et animi fuga nulla cumque non facilis, quia optio veniam, quibusdam illum tenetur quam ad veritatis recusandae ipsam dignissimos nobis.</p>
-                    </div>
-                </div>
+            {% endfor %} 
             </div>
         </div>
    </div>

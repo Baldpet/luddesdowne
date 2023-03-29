@@ -1,0 +1,63 @@
+h1, h2{
+    margin-top: 2rem;
+}
+
+.event-form label{
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.event-form-content{
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+#event-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+#event-list .card{
+    width: 18rem;
+}
+
+#event-list .card-footer {
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+#event-list .card-footer a{
+    display: flex;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    flex-grow: 1;
+    border: 1px solid rgba(0,0,0,.125);
+    height: 3.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+#event-list .card-footer .eventcard-primary-btn{
+    background-color: #EFE82D;
+}
+#event-list .card-footer .eventcard-warning-btn{
+    background-color: #ffdddd;
+}
+
+@media (min-width: 992px) {
+    .event-form-content{
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        gap: 1rem;
+        margin: 1rem 0;
+    }
+    .event-form-content .fieldWrapper:last-child{
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}

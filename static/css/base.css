@@ -24,7 +24,7 @@ header, footer{
     color: white;
 }
 
-p{
+p, label, input, select{
     font-size: 1.2rem;
 }
 

@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
-from .models import Events, EventsForm
+from .models import Events, EventImage
+from .forms import EventsForm
 from django.contrib.auth.decorators import login_required, permission_required
 
 # Create your views here.
@@ -8,7 +9,8 @@ from django.contrib.auth.decorators import login_required, permission_required
 @login_required
 @permission_required('socialevent.add_events')
 def socialevent(request):
-    events = Events.objects.all()
+    events = Events.objects.all().order_by('date')
+    event_image = EventImage.objects.all()
 
     if request.method == 'POST':
         form = EventsForm(request.POST)
@@ -20,6 +22,7 @@ def socialevent(request):
     template = 'socialevent/index.html'
     context = {
         'events': events,
+        'event_image': event_image,
         'form': form
     }
     return render(request, template, context)
@@ -29,6 +32,8 @@ def socialevent(request):
 @permission_required('socialevent.add_events')
 def edit_socialevent(request, event_id):
     event = get_object_or_404(Events, pk=event_id)
+    event_image = EventImage.objects.all()
+
     if request.method == "POST":
         form = EventsForm(request.POST, instance=event)
         form.save()
@@ -38,6 +43,7 @@ def edit_socialevent(request, event_id):
     template = 'socialevent/edit.html'
     context = {
         'form': form,
+        'event_image': event_image,
         'event': event
     }
     return render(request, template, context)

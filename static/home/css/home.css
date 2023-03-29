@@ -78,8 +78,22 @@ h2{
     padding-bottom: 2rem;
 }
 
+.coming-soon{
+    display: flex;
+    justify-content: center;
+}
+
+
+
 .event-container{
     margin: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    gap: 2rem;
+}
+
+.event-container .card{
+    max-width: 400px;
 }
 
 #sponsor-row{
@@ -90,7 +104,12 @@ h2{
     .sponsor-div{
         margin-bottom: 0;
     }
-
+    .event-container{
+        margin: 2rem 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
 
 }
 
@@ -101,6 +120,7 @@ h2{
     .title-div{
         left: 15vw;
     }
+
 }
 
 @media (min-width: 992px) {
@@ -110,5 +130,14 @@ h2{
     }
     .hero-img{
         min-height: 800px;
+    }
+    .event-container{
+        margin: 2rem 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    .event-container .card{
+        max-width: initial;
     }
 }

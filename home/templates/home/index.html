@@ -3,12 +3,15 @@
 
 {% block meta %}
 {{ block.super }}
-<title>Luddesdowne CC</title>
+<meta name="description" content="Luddesdowne is a friendly cricket club based in the North Kent countryside. Playing in the Kent Village League with a picturesque home ground, it is a wonderful place to play cricket.">
 {% endblock %}
+
+{% block title %}Luddesdowne CC{% endblock %}
 
 {% block corecss %}
 {{ block.super }}
 <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+<link rel="preload" fetchpriority="high" as="image" href="{{ MEDIA_URL }}luddesdowne-ground.png" type="image/png">
 {% endblock %}
 
 {% block content %}
@@ -42,38 +45,60 @@
                 </div>
                 <div class="col-xs-12 col-md-4 fixture-container" style="text-align: center;">
                     <h3>1st XI</h3>
-                    <img src="{{ MEDIA_URL }}logo.png" alt="Luddes Logo" class="fixture-logo""><span>V</span><img src="{{ MEDIA_URL }}logo.png" alt="Luddes Logo" class="fixture-logo"">
-                    <div class="fixture-teams">
-                        <p>Luddesdowne Vs Luddesdowne</p>
-                    </div>
-                    <div class="fixture-break"></div>
-                    <p>Saturday 5th April, 13.30PM</p>
-                    <p>Henley Bottom</p>
-                    <p>League</p>
+                    {% for fixture in fixturesFirst %}
+                        {% if fixture.home_club_id.team_badge %}<img src="{{fixture.home_club_id.team_badge}}" alt="Home Team Logo" class="fixture-logo" >{% else %}<img src="{{ MEDIA_URL }}cricketball.svg" alt="Cricket Ball" class="fixture-logo" >{% endif %}<span>V</span>{% if fixture.away_club_id.team_badge %}<img src="{{fixture.away_club_id.team_badge}}" alt="Away Team Logo" class="fixture-logo" >{% else %}<img src="{{ MEDIA_URL }}cricketball.svg" alt="Cricket Ball" class="fixture-logo" >{% endif %}
+                        <div class="fixture-teams">
+                            <p>{{fixture.home_club_id}} Vs {{fixture.away_club_id}}</p>
+                        </div>
+                        <div class="fixture-break"></div>
+                        <p>{{fixture.match_date}}, {{fixture.match_time}}</p>
+                        <a href="https://luddesdowne.play-cricket.com/grounds/{{ fixture.ground_id }}" target="_blank">{{ fixture.ground_name }}</a>
+                        <p>{{ fixture.competition_type }}</p>
+                    {% empty %}
+                        <img src="{{ MEDIA_URL }}cricketball.svg" alt="Cricket Ball" class="fixture-logo" >
+                        <p>No fixtures for this team are currently organised, check back soon for updated fixtures</p>
+                    {% endfor %}
                 </div>
                 <div class="col-xs-12 d-md-none fixture-blur" ></div>
                 <div class="col-xs-12 col-md-4 fixture-container" style="text-align: center;">
                     <h3>2nd XI</h3>
-                    <img src="{{ MEDIA_URL }}logo.png" alt="Luddes Logo" class="fixture-logo" ><span>V</span><img src="{{ MEDIA_URL }}logo.png" alt="Luddes Logo" class="fixture-logo">
-                    <div class="fixture-teams">   
-                        <p >Luddesdowne Vs Luddesdowne</p>
-                    </div>
-                    <div class="fixture-break"></div>
-                    <p>Saturday 5th April, 13.30PM</p>
-                    <p>Henley Bottom</p>
-                    <p>League</p>
+                    {% for fixture in fixturesSecond %}
+                        {% if fixture.home_club_id.team_badge %}<img src="{{fixture.home_club_id.team_badge}}" alt="Home Team Logo" class="fixture-logo" >{% else %}<img src="{{ MEDIA_URL }}cricketball.svg" alt="Cricket Ball" class="fixture-logo" >{% endif %}<span>V</span>{% if fixture.away_club_id.team_badge %}<img src="{{fixture.away_club_id.team_badge}}" alt="Away Team Logo" class="fixture-logo" >{% else %}<img src="{{ MEDIA_URL }}cricketball.svg" alt="Cricket Ball" class="fixture-logo" >{% endif %}
+                        <div class="fixture-teams">   
+                            <p>{{fixture.home_club_id}} Vs {{fixture.away_club_id}}</p>
+                        </div>
+                        <div class="fixture-break"></div>
+                        <p>{{fixture.match_date}}, {{fixture.match_time}}</p>
+                        <a href="https://luddesdowne.play-cricket.com/grounds/{{ fixture.ground_id }}" target="_blank">{{ fixture.ground_name }}</a>
+                        <p>{{ fixture.competition_type }}</p>
+                    {% empty %}
+                        <img src="{{ MEDIA_URL }}cricketball.svg" alt="Cricket Ball" class="fixture-logo" >
+                        <p>No fixtures for this team are currently organised, check back soon for updated fixtures</p>
+                    {% endfor %}
                 </div>
                 <div class="col-xs-12 d-md-none fixture-blur" ></div>
                 <div class="col-xs-12 col-md-4 fixture-container" style="text-align: center;">
                     <h3>Ladies</h3>
-                    <img src="{{ MEDIA_URL }}logo.png" alt="Luddes Logo" class="fixture-logo"><span>V</span><img src="{{ MEDIA_URL }}logo.png" alt="Luddes Logo" class="fixture-logo">
-                    <div class="fixture-teams">
-                        <p>Luddesdowne Vs Luddesdowne</p>
+                    {% for fixture in fixturesLadies %}
+                        {% if fixture.home_club_id.team_badge %}<img src="{{fixture.home_club_id.team_badge}}" alt="Home Team Logo" class="fixture-logo" >{% else %}<img src="{{ MEDIA_URL }}cricketball.svg" alt="Cricket Ball" class="fixture-logo" >{% endif %}<span>V</span>{% if fixture.away_club_id.team_badge %}<img src="{{fixture.away_club_id.team_badge}}" alt="Away Team Logo" class="fixture-logo" >{% else %}<img src="{{ MEDIA_URL }}cricketball.svg" alt="Cricket Ball" class="fixture-logo" >{% endif %}
+                        <div class="fixture-teams">
+                            <p>{{fixture.home_club_id}} Vs {{fixture.away_club_id}}</p>
+                        </div>
+                        <div class="fixture-break"></div>
+                        <p>{{fixture.match_date}}, {{fixture.match_time}}</p>
+                        <a href="https://luddesdowne.play-cricket.com/grounds/{{ fixture.ground_id }}" target="_blank">{{ fixture.ground_name }}</a>
+                        <p>{{ fixture.competition_type }}</p>
+                    {% empty %}
+                        <img src="{{ MEDIA_URL }}cricketball.svg" alt="Cricket Ball" class="fixture-logo" >
+                        <p>No fixtures for this team are currently organised, check back soon for updated fixtures</p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12" style="margin-bottom: 2rem; display: flex;">
+                    <div style="margin: 0 auto; display: block;">
+                        <a class="primary-btn" href="https://luddesdowne.play-cricket.com/Matches?tab=Fixture" target="_blank" >See all Fixtures</a>
                     </div>
-                    <div class="fixture-break"></div>
-                    <p>Saturday 5th April, 13.30PM</p>
-                    <p>Henley Bottom</p>
-                    <p>Softball Tournament</p>
                 </div>
             </div>
         </div>

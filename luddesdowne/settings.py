@@ -29,8 +29,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 
+# Play Cricket API key - to be kept secret
+PLAY_CRICKET_API = env('PLAY_CRICKET_API')
+
+DEVELOPMENT = env('DEVELOPMENT')
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if DEVELOPMENT:
+    DEBUG = True
 
 ALLOWED_HOSTS = ['LuddesdowneCC.eu.pythonanywhere.com', '127.0.0.1']
 
@@ -99,13 +105,24 @@ WSGI_APPLICATION = 'luddesdowne.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE'  : 'django.db.backends.mysql',
+            'NAME'    : 'LuddesdowneDB', 
+            'USER'    : 'LuddesdowneCC',
+            'PASSWORD': 'HenleyBottom1947',
+            'HOST'    : 'LuddesdowneCC.mysql.eu.pythonanywhere-services.com',
+            'PORT'    : '3306',
+        }
+    }
 
 
 # Password validation

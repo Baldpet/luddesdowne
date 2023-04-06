@@ -34,6 +34,8 @@ PLAY_CRICKET_API = env('PLAY_CRICKET_API')
 
 DEVELOPMENT = env('DEVELOPMENT')
 
+MYSQLPASSWORD = env('SQLPASSWORD')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 if DEVELOPMENT:
     DEBUG = True
@@ -118,7 +120,7 @@ else:
             'ENGINE'  : 'django.db.backends.mysql',
             'NAME'    : 'LuddesdowneDB', 
             'USER'    : 'LuddesdowneCC',
-            'PASSWORD': 'HenleyBottom1947',
+            'PASSWORD': MYSQLPASSWORD,
             'HOST'    : 'LuddesdowneCC.mysql.eu.pythonanywhere-services.com',
             'PORT'    : '3306',
         }

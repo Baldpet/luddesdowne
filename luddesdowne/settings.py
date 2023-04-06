@@ -39,6 +39,8 @@ MYSQLPASSWORD = env('SQLPASSWORD')
 # SECURITY WARNING: don't run with debug turned on in production!
 if DEVELOPMENT:
     DEBUG = True
+else:
+    DEBUG = False
 
 ALLOWED_HOSTS = ['LuddesdowneCC.eu.pythonanywhere.com', '127.0.0.1']
 

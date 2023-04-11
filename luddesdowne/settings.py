@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import MySQLdb
 import os
 import environ
 
@@ -32,7 +33,7 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 # Play Cricket API key - to be kept secret
 PLAY_CRICKET_API = env('PLAY_CRICKET_API')
 
-DEVELOPMENT = env('DEVELOPMENT')
+DEVELOPMENT = env.bool('DEVELOPMENT', False)
 
 MYSQLPASSWORD = env('SQLPASSWORD')
 
@@ -120,7 +121,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE'  : 'django.db.backends.mysql',
-            'NAME'    : 'LuddesdowneDB', 
+            'NAME'    : 'LuddesdowneCC$default', 
             'USER'    : 'LuddesdowneCC',
             'PASSWORD': MYSQLPASSWORD,
             'HOST'    : 'LuddesdowneCC.mysql.eu.pythonanywhere-services.com',

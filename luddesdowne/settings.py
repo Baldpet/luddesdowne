@@ -43,7 +43,7 @@ if DEVELOPMENT:
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = ['LuddesdowneCC.eu.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['LuddesdowneCC.eu.pythonanywhere.com', '127.0.0.1', 'www.luddesdownecc.co.uk']
 
 
 # Application definition

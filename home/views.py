@@ -27,11 +27,12 @@ def contact(request):
 def fixtures(request):
     today = date.today()
     # Get the current year
-    current_year = datetime.datetime.now().year
+    current_year = datetime.now().year
 
     #Gets the info from Play Cricket API
     dataJSON = requests.request('GET', f'https://play-cricket.com/api/v2/matches.json?&site_id=7938&season={current_year}&api_token={settings.PLAY_CRICKET_API}')
     data = dataJSON.json()
+    
 
     #Pulls the last update that we have done to the fixtures
     lastServerUpdateQS = FixtureUpdate.objects.all().order_by('-id')[:1]
@@ -47,16 +48,9 @@ def fixtures(request):
             luddesTeam = "home"
         else:
             luddesTeam = "away"
-        #Checks to see if there has ever been an update before
-        if hasUpdate:     #has a previous update date so we can filter which fixtures need to be updated
-            lastUpdate = datetime.strptime(matches['last_updated'], "%d/%m/%Y").date()
-            if lastUpdate > lastServerUpdate:
-                clubCreation(matches)
-                fixtureCreation(matches, True, luddesTeam)
-        else:
-            #first time the function has run - therefore we can just add all the information
-            clubCreation(matches)
-            fixtureCreation(matches, False, luddesTeam)
+        clubCreation(matches)
+        fixtureCreation(matches, luddesTeam)
+
 
     fixtureUpdate = FixtureUpdate(
         last_update = today
@@ -85,40 +79,20 @@ def clubCreation(fixture):
         newClub.save()
     return 
 #Checks if the fixture exists in the database - If they do not it adds them to the Fixtures Database
-def fixtureCreation(fixture, update , luddesTeam):
-    if update:
-        #Get the current object in the database
-        newFixture = Fixtures.objects.get(play_cricket_fixture_ID=fixture['id'])
-
-        #update the object with the newly gathered info
-        newFixture.play_cricket_fixture_ID = int(fixture['id'])
-        newFixture.luddes_team = fixture[f'{luddesTeam}_team_name']
-        newFixture.last_updated = datetime.strptime(fixture['last_updated'], "%d/%m/%Y").date()
-        newFixture.status = fixture['status']
-        newFixture.match_date = datetime.strptime(fixture['match_date'], "%d/%m/%Y").date()
-        newFixture.match_time = fixture['match_time']
-        newFixture.ground_name =  fixture['ground_name']
-        newFixture.ground_ID = fixture['ground_id']
-        newFixture.home_club_id = Clubs.objects.get(play_cricket_ID=fixture['home_club_id'])
-        newFixture.away_club_id = Clubs.objects.get(play_cricket_ID=fixture['away_club_id'])
-        newFixture.competition_type = fixture['competition_type']
-
-        #save the new object
-        newFixture.save()
-    else:
-        if not Fixtures.objects.filter(play_cricket_fixture_ID=fixture['id']).exists():
-            newFixture = Fixtures(
-                play_cricket_fixture_ID = int(fixture['id']),
-                luddes_team = fixture[f'{luddesTeam}_team_name'],
-                last_updated = datetime.strptime(fixture['last_updated'], "%d/%m/%Y").date(),
-                status = fixture['status'],
-                match_date = datetime.strptime(fixture['match_date'], "%d/%m/%Y").date(),
-                match_time = fixture['match_time'],
-                ground_name =  fixture['ground_name'],
-                ground_ID = fixture['ground_id'],
-                home_club_id = Clubs.objects.get(play_cricket_ID=fixture['home_club_id']),
-                away_club_id = Clubs.objects.get(play_cricket_ID=fixture['away_club_id']),
-                competition_type = fixture['competition_type'],
-            )
-            newFixture.save()
+def fixtureCreation(fixture, luddesTeam):
+    Fixtures.objects.update_or_create(
+        play_cricket_fixture_ID=int(fixture['id']),
+        defaults={
+            'luddes_team': fixture[f'{luddesTeam}_team_name'],
+            'last_updated': datetime.strptime(fixture['last_updated'], "%d/%m/%Y").date(),
+            'status': fixture['status'],
+            'match_date': datetime.strptime(fixture['match_date'], "%d/%m/%Y").date(),
+            'match_time': fixture['match_time'],
+            'ground_name': fixture['ground_name'],
+            'ground_ID': fixture['ground_id'],
+            'home_club_id': Clubs.objects.get(play_cricket_ID=fixture['home_club_id']),
+            'away_club_id': Clubs.objects.get(play_cricket_ID=fixture['away_club_id']),
+            'competition_type': fixture['competition_type'],
+        }
+    )
     return 

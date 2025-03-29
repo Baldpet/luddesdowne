@@ -26,8 +26,11 @@ def contact(request):
 
 def fixtures(request):
     today = date.today()
+    # Get the current year
+    current_year = datetime.datetime.now().year
+
     #Gets the info from Play Cricket API
-    dataJSON = requests.request('GET', f'https://play-cricket.com/api/v2/matches.json?&site_id=7938&season=2023&api_token={settings.PLAY_CRICKET_API}')
+    dataJSON = requests.request('GET', f'https://play-cricket.com/api/v2/matches.json?&site_id=7938&season={current_year}&api_token={settings.PLAY_CRICKET_API}')
     data = dataJSON.json()
 
     #Pulls the last update that we have done to the fixtures
